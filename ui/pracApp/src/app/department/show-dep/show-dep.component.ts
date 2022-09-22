@@ -18,7 +18,7 @@ export class ShowDepComponent implements OnInit {
 
   refreshDepList() {
     this.service.getDepList().subscribe(data => {
-      this.DepartmentList=data
+      this.DepartmentList = data
     })
   }
 
