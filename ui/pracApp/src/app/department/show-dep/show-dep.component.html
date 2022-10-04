@@ -1,3 +1,25 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-toggle="modal" data-target="#Modal" (click)="addClick()" data-backdrop="static" data-keyboard="false">
+  Add department
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-dep [dep]="dep" *ngIf="ActivateAddEditDepComp"></app-add-edit-dep>
+      </div>      
+    </div>
+  </div>
+</div>
+
 <table class="table table-striped">
   <thead>
     <th>Department ID</th>
@@ -9,8 +31,12 @@
       <td>{{ dataItem.DepartmentId }}</td>
       <td>{{ dataItem.DepartmentName }}</td>
       <td>
-        <button type="button" class="btn btn-light mr-1">Edit</button>
-        <button type="button" class="btn btn-light mr-1">Delete</button>
+        <button type="button" class="btn btn-light mr-1" data-toggle="modal" data-target="#Modal" (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false">
+          Edit
+        </button>
+        <button type="button" class="btn btn-light mr-1">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>
